@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { site, fullAddress, serviceAreas } from "@/lib/site";
+import { MobileNav } from "./mobile-nav";
 
 const NAV = [
   { href: "/about", label: "About" },
@@ -70,32 +71,20 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <a
-            href={site.phoneHref}
-            className="ml-auto inline-flex items-center gap-2 rounded-full bg-pink px-4 py-2.5 text-sm font-extrabold text-white shadow-sm transition hover:bg-pink-deep xl:ml-2"
-          >
-            <PhoneIcon className="h-4 w-4" />
-            <span className="hidden sm:inline">Call Us</span>
-            <span className="sm:hidden">Call</span>
-          </a>
-        </div>
+          <div className="ml-auto flex items-center gap-2 xl:ml-2">
+            <a
+              href={site.phoneHref}
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-pink px-4 text-sm font-extrabold text-white shadow-sm transition hover:bg-pink-deep"
+            >
+              <PhoneIcon className="h-4 w-4" />
+              <span className="hidden sm:inline">Call Us</span>
+              <span className="sm:hidden">Call</span>
+            </a>
 
-        {/* Small screens: nav wraps below rather than hiding behind a JS drawer.
-            Fewer moving parts, and nothing is unreachable if scripts fail. */}
-        <nav aria-label="Primary, condensed" className="border-t border-line xl:hidden">
-          <div className="mx-auto flex max-w-7xl gap-1 overflow-x-auto px-3 py-2">
-            {NAV.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                prefetch={false}
-                className="inline-flex min-h-11 items-center whitespace-nowrap rounded-full px-3.5 py-2 text-sm font-bold text-ink-soft transition hover:bg-pink-tint hover:text-pink-deep"
-              >
-                {item.label}
-              </Link>
-            ))}
+            {/* Below xl the links live in here instead of a scrolling strip. */}
+            <MobileNav items={NAV} />
           </div>
-        </nav>
+        </div>
       </header>
     </>
   );
