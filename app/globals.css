@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* =============================================================================
+   Brand tokens
+
+   Every colour here is sampled from the client's logo: the magenta roof and
+   heart, the marigold hand, and the teal/green figures inside. Deeper variants
+   exist because the logo colours are tuned for a white background at large
+   sizes and fail contrast as small text; use the -deep variants for type.
+
+   The site is deliberately light-only. It is a marketing site for families
+   researching care for an elderly parent, often on a phone in a waiting room.
+   a single, warm, high-contrast theme serves that better than two.
+   ========================================================================== */
+@theme {
+  --color-pink: #e8175d;
+  --color-pink-deep: #bc0f49;
+  --color-pink-tint: #fdeaf1;
+
+  --color-marigold: #f5a623;
+  --color-marigold-deep: #b06f05;
+  --color-marigold-tint: #fef3e0;
+
+  --color-teal: #29b0d4;
+  --color-teal-deep: #10748f;
+  --color-teal-tint: #e4f5fa;
+
+  --color-leaf: #68b72e;
+  --color-leaf-deep: #43781c;
+  --color-leaf-tint: #eef8e5;
+
+  /* Warm neutrals, biased toward the magenta so they read as chosen. */
+  --color-ink: #2b2126;
+  --color-ink-soft: #5c4f55;
+  --color-ink-mute: #877a80;
+  --color-cream: #fdf8f6;
+  --color-line: #f0e2dd;
+  --color-line-strong: #e0cbc4;
+
+  --font-sans: var(--font-nunito), "Segoe UI", system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #ffffff;
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Visible focus for keyboard users, on every interactive element. */
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 3px solid var(--color-teal-deep);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Utility: the soft blob shape used behind photos and placeholders. */
+.blob {
+  border-radius: 42% 58% 55% 45% / 48% 42% 58% 52%;
+}
