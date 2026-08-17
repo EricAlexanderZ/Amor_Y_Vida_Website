@@ -11,7 +11,6 @@ const ROUTES = [
   { path: "/services", priority: 0.9 },
   { path: "/activities", priority: 0.9 },
   { path: "/gallery", priority: 0.8 },
-  { path: "/videos", priority: 0.8 },
   { path: "/about", priority: 0.8 },
   { path: "/eligibility", priority: 0.9 },
   { path: "/insurance", priority: 0.8 },

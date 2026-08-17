@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
-import { PageHero, Section, PhotoPlaceholder, VideoPlaceholder, GhostLink, CtaBand } from "@/components/ui";
-import { activityCategories, dailySchedule, videoPlaceholders } from "@/lib/site";
+import { PageHero, Section, PhotoPlaceholder, GhostLink, CtaBand } from "@/components/ui";
+import { activityCategories, dailySchedule } from "@/lib/site";
 import { aspectFor } from "@/lib/photos";
 
 export const metadata: Metadata = {
@@ -85,20 +85,14 @@ export default function ActivitiesPage() {
         </ol>
       </Section>
 
-      {/* ── Video teaser ─────────────────────────────────────────────────── */}
+      {/* ── Gallery teaser ───────────────────────────────────────────────── */}
       <Section
         eyebrow="See it for yourself"
-        title="Video from inside the center"
-        lede="Photos help, but video is the closest thing to walking through the door."
+        title="Photos from inside the center"
+        lede="Choosing care for a parent is hard to do from a phone screen. These are the rooms, the people and the ordinary days in between."
         accent="green"
       >
-        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {videoPlaceholders.slice(0, 3).map((v) => (
-            <VideoPlaceholder key={v.slug} title={v.title} duration={v.duration} blurb={v.blurb} accent="teal" />
-          ))}
-        </div>
         <div className="flex flex-wrap justify-center gap-3">
-          <GhostLink href="/videos">All Videos</GhostLink>
           <GhostLink href="/gallery">Photo Gallery</GhostLink>
         </div>
       </Section>

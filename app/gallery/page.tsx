@@ -94,12 +94,6 @@ export default function GalleryPage() {
         </Section>
       ))}
 
-      <Section eyebrow="Prefer video?" title="Watch instead of scrolling" accent="green">
-        <div className="flex justify-center">
-          <GhostLink href="/videos">Go to Videos</GhostLink>
-        </div>
-      </Section>
-
       <CtaBand
         title="Photos only go so far"
         body="Come stand in the room. Tours take about twenty minutes and you can drop in during operating hours."

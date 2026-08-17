@@ -181,7 +181,7 @@ export default function HomePage() {
         </div>
         <div className="flex flex-wrap justify-center gap-3">
           <GhostLink href="/gallery">Browse All Photos</GhostLink>
-          <GhostLink href="/videos">Watch Our Videos</GhostLink>
+          <GhostLink href="/activities">See Our Activities</GhostLink>
         </div>
       </Section>
 

@@ -205,8 +205,11 @@ export const activityCategories: ActivityCategory[] = [
       { src: photos.dancingSolo,    alt: "A participant dancing and laughing during the afternoon" },
       { src: photos.couplePortrait, alt: "Two participants posing arm in arm during a celebration" },
     ] },
-  { slug: "arts-and-crafts", title: "Arts & Crafts", blurb: "Painting, seasonal decorations and handmade gifts participants take home to family.", accent: "teal", photoCount: 6 },
-  { slug: "exercise-and-movement", title: "Exercise & Movement", blurb: "Chair aerobics, stretching circles and walking groups led at a comfortable pace.", accent: "green", photoCount: 6 },
+  // Arts & Crafts and Exercise & Movement were removed 2026-08-16: the center
+  // runs both, but there is not a single usable frame of either on the client's
+  // card, and a category of nothing but "photo coming soon" boxes reads as an
+  // unfinished site. Restore them from git the moment those photos exist — the
+  // copy is written and the daily schedule still lists both activities.
   { slug: "celebrations", title: "Birthdays & Celebrations", blurb: "Birthdays, holidays, Día de las Madres and every reason we can find for cake.", accent: "pink", photoCount: 6,
     shots: [
       { src: photos.heroGroup,       alt: "Participants and staff gathered together for a themed celebration day" },
@@ -227,14 +230,17 @@ export const activityCategories: ActivityCategory[] = [
     ] },
 ];
 
-export const videoPlaceholders = [
-  { slug: "center-tour", title: "Take a tour of our center", duration: "2:14", blurb: "Walk through the activity room, dining area, quiet room and outdoor space." },
-  { slug: "a-day-at-amor-y-vida", title: "A day at Amor Y Vida", duration: "3:02", blurb: "From the 6:30 AM welcome to the afternoon ride home." },
-  { slug: "morning-exercise", title: "Morning exercise class", duration: "1:35", blurb: "Our chair exercise routine, led by staff every weekday." },
-  { slug: "loteria-afternoon", title: "Lotería afternoon", duration: "1:48", blurb: "One of the liveliest hours on the schedule." },
-  { slug: "family-testimonials", title: "What families tell us", duration: "2:40", blurb: "Families describe what changed after their loved one enrolled." },
-  { slug: "holiday-celebration", title: "Holiday celebration", duration: "2:05", blurb: "Music, food and dancing at our annual posada." },
-];
+/**
+ * Removed 2026-08-16 with the /videos page: every entry was a placeholder and
+ * no video had ever been produced. The client's card holds 11GB of raw footage,
+ * which is far too heavy to commit or self-host — when video does happen it
+ * should be YouTube embeds, so these slugs and durations would not have been
+ * reusable anyway. Recover from git if the shot list is still wanted.
+ *
+ * export const videoPlaceholders = [ "center-tour", "a-day-at-amor-y-vida",
+ *   "morning-exercise", "loteria-afternoon", "family-testimonials",
+ *   "holiday-celebration" ]
+ */
 
 /* ─────────────────────────────────────────────────────────────────────────
    Eligibility, insurance, FAQ
