@@ -25,7 +25,11 @@ export const site = {
   phone: "(956) 270-4637",
   phoneHref: "tel:+19562704637",
 
-  email: "info@amoryvida.com",
+  // The center's real inbox, confirmed by the client 2026-08-16. It is an
+  // Outlook address rather than one on the domain, which is fine — but it must
+  // match the Google Business Profile and every directory listing exactly, or
+  // the NAP consistency the local SEO depends on breaks.
+  email: "amoryvidaadc@outlook.com",
 
   address: {
     street: "13600 Hwy 107",

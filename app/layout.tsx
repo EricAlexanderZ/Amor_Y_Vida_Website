@@ -86,6 +86,10 @@ function LocalBusinessJsonLd() {
     description: site.description,
     url: site.url,
     telephone: site.phone,
+    // Part of the NAP set Google cross-references against the Business Profile,
+    // so it belongs in the structured data alongside the phone, not only in the
+    // page copy.
+    email: site.email,
     logo: `${site.url}/images/logo.png`,
     image: `${site.url}/images/logo.png`,
     priceRange: "Covered by most Medicaid and private plans",
