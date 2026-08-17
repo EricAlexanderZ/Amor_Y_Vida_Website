@@ -29,7 +29,7 @@ export function SiteHeader() {
           one of the strongest local-search signals a site can give. */}
       <div className="bg-pink text-white">
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-center gap-x-6 gap-y-1 px-4 py-2 text-center text-[13px] font-semibold sm:justify-between">
-          <a href={site.phoneHref} className="inline-flex min-h-9 items-center gap-1.5 hover:underline">
+          <a href={site.phoneHref} className="inline-flex min-h-11 items-center gap-1.5 hover:underline">
             <PhoneIcon className="h-3.5 w-3.5" />
             {site.phone}
           </a>
@@ -38,7 +38,16 @@ export function SiteHeader() {
         </div>
       </div>
 
-      <header className="sticky top-0 z-50 border-b border-line bg-white/95 backdrop-blur-0">
+      {/*
+        No backdrop-filter here, deliberately. `backdrop-blur-0` used to be on
+        this element: it blurs by zero pixels so it does nothing visible, but
+        Tailwind still emits the backdrop-filter property, and that alone forces
+        a compositing layer that is repainted on every scroll frame. A sticky,
+        translucent bar with backdrop-filter is the exact combination that
+        crashed iOS tabs on the Stitch Depot build. bg-white/95 is nearly opaque
+        anyway, so there was nothing to blur through.
+      */}
+      <header className="sticky top-0 z-50 border-b border-line bg-white/95">
         <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3">
           <Link href="/" prefetch={false} className="flex shrink-0 items-center gap-3" aria-label={`${site.shortName} home`}>
             <Image src="/images/logo.png" alt="" width={54} height={54} priority className="h-12 w-12 object-contain sm:h-14 sm:w-14" />
@@ -114,19 +123,19 @@ export function SiteFooter() {
         <div className="flex flex-col gap-3">
           <h2 className="text-sm font-extrabold uppercase tracking-widest text-marigold">Explore</h2>
           {NAV.map((item) => (
-            <Link key={item.href} href={item.href} prefetch={false} className="inline-flex min-h-9 items-center text-sm hover:text-white hover:underline">
+            <Link key={item.href} href={item.href} prefetch={false} className="inline-flex min-h-11 items-center text-sm hover:text-white hover:underline">
               {item.label}
             </Link>
           ))}
-          <Link href="/admissions" prefetch={false} className="inline-flex min-h-9 items-center text-sm hover:text-white hover:underline">How to Enroll</Link>
-          <Link href="/faq" prefetch={false} className="inline-flex min-h-9 items-center text-sm hover:text-white hover:underline">FAQ</Link>
+          <Link href="/admissions" prefetch={false} className="inline-flex min-h-11 items-center text-sm hover:text-white hover:underline">How to Enroll</Link>
+          <Link href="/faq" prefetch={false} className="inline-flex min-h-11 items-center text-sm hover:text-white hover:underline">FAQ</Link>
         </div>
 
         <div className="flex flex-col gap-3">
           <h2 className="text-sm font-extrabold uppercase tracking-widest text-marigold">Areas We Serve</h2>
           <div className="flex flex-wrap gap-x-3 gap-y-1.5">
             {serviceAreas.map((area) => (
-              <Link key={area.slug} href={`/areas-we-serve/${area.slug}`} prefetch={false} className="inline-flex min-h-9 items-center text-sm hover:text-white hover:underline">
+              <Link key={area.slug} href={`/areas-we-serve/${area.slug}`} prefetch={false} className="inline-flex min-h-11 items-center text-sm hover:text-white hover:underline">
                 {area.city}
               </Link>
             ))}

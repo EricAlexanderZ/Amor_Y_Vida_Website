@@ -112,14 +112,6 @@ function CameraIcon({ className = "" }: { className?: string }) {
   );
 }
 
-function PlayIcon({ className = "" }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" aria-hidden="true" className={className} fill="currentColor">
-      <path d="M8 5.5v13l11-6.5z" />
-    </svg>
-  );
-}
-
 /**
  * A photo slot.
  *
@@ -179,37 +171,6 @@ export function PhotoPlaceholder({
         <span className="text-sm font-bold leading-snug text-ink-soft">{label}</span>
       </figcaption>
     </figure>
-  );
-}
-
-export function VideoPlaceholder({
-  title,
-  duration,
-  blurb,
-  accent = "teal",
-}: {
-  title: string;
-  duration: string;
-  blurb: string;
-  accent?: Accent;
-}) {
-  const a = ACCENT[accent];
-  return (
-    <article className="flex flex-col overflow-hidden rounded-[--radius-card] border border-line bg-white shadow-sm">
-      <div className={`relative flex aspect-video items-center justify-center ${a.tint} border-b-2 border-dashed border-line-strong`}>
-        <span className={`grid h-16 w-16 place-items-center rounded-full ${a.solid} pl-1 text-white shadow-md`}>
-          <PlayIcon className="h-7 w-7" />
-        </span>
-        <span className="absolute bottom-3 right-3 rounded-md bg-ink/80 px-2 py-1 text-[11px] font-bold tabular-nums text-white">
-          {duration}
-        </span>
-      </div>
-      <div className="flex flex-col gap-1.5 p-5">
-        <span className={`text-[11px] font-extrabold uppercase tracking-[0.16em] ${a.deep}`}>Video coming soon</span>
-        <h3 className="text-lg font-extrabold leading-snug text-ink">{title}</h3>
-        <p className="text-sm leading-relaxed text-ink-soft">{blurb}</p>
-      </div>
-    </article>
   );
 }
 
