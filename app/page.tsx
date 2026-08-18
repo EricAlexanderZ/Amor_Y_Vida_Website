@@ -166,17 +166,25 @@ export default function HomePage() {
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
             label="Participants singing together during a live music afternoon"
           />
+          {/*
+            These two were an empty patio and a tray of cupcakes. Both are fine
+            photographs and both still appear elsewhere, but on a phone the row
+            stacks to one column, so they landed at the bottom as the last thing
+            a visitor saw: two pictures with no people in them, closing a section
+            whose whole promise is "this is what your parent's day looks like".
+            People, not furniture and dessert.
+          */}
           <PhotoPlaceholder
             accent="teal"
-            src={photos.outdoorSeating}
+            src={photos.couplePortrait}
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            label="The shaded outdoor seating area in the center's fenced patio"
+            label="Two participants smiling together during a celebration at the center"
           />
           <PhotoPlaceholder
             accent="green"
-            src={photos.celebration}
+            src={photos.loteriaSmiling}
             sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw"
-            label="Trays of iced cupcakes set out for a birthday celebration"
+            label="A participant smiling as he marks his lotería board"
           />
         </div>
         <div className="flex flex-wrap justify-center gap-3">
