@@ -44,9 +44,28 @@
 
 html {
   scroll-behavior: smooth;
+
+  /*
+    Two fixes for the same symptom: on iOS you could rubber-band past the dark
+    footer into a slab of white, which looked like the page had broken.
+
+    Nothing actually renders below the footer, so this was never real scrollable
+    content. The bounce simply exposes the canvas behind <body>, and that canvas
+    was white while the footer is #2b2126.
+
+    overscroll-behavior-y stops the bounce itself. Painting html the same colour
+    as the footer covers browsers that ignore it, and any momentum fling that
+    outruns it, so the worst case is now dark-on-dark instead of a white void.
+  */
+  overscroll-behavior-y: none;
+  background-color: var(--color-ink);
 }
 
 body {
+  /*
+    Still white. body only spans the content, so this is the page surface while
+    html is the canvas behind it that shows during overscroll.
+  */
   background: #ffffff;
   color: var(--color-ink);
   -webkit-font-smoothing: antialiased;
