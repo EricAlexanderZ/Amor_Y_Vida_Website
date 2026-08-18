@@ -18,9 +18,21 @@ export const site = {
   description:
     "Amor Y Vida is a licensed adult day care center in La Blanca, Texas, serving seniors and adults across Hidalgo County with health monitoring, therapeutic activities, hot meals and transportation.",
 
-  // Update this the moment the domain is live. Canonical URLs, the sitemap and
-  // the JSON-LD all derive from it.
-  url: "https://amoryvida.com",
+  /**
+   * The live site. Canonical URLs, the sitemap and the JSON-LD all derive from
+   * this, so it has to be exactly the form that serves a 200.
+   *
+   * Use the www host, not the apex: amoryvidaadc.com answers 308 and redirects
+   * here, so pointing canonicals at the apex would make every one of them a
+   * redirect hop.
+   *
+   * This was "https://amoryvida.com" until 2026-08-17, a placeholder invented
+   * before the domain existed. That name is a parked HugeDomains listing the
+   * client has never owned, so the live site spent its first weeks telling
+   * Google the true home of every page was a domain-for-sale page. Any URL put
+   * here must be checked against a real request first.
+   */
+  url: "https://www.amoryvidaadc.com",
 
   phone: "(956) 270-4637",
   phoneHref: "tel:+19562704637",
